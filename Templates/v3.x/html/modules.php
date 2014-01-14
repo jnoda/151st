@@ -1,9 +1,9 @@
 <?php
 /**
- * @package     Joomla.Site
- * @subpackage  Templates.protostar
+ * @package     151st.Site
+ * @subpackage  Templates.151st
  *
- * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2014 151st Freedom Fighters. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
