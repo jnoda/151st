@@ -39,7 +39,8 @@ JHtml::_('bootstrap.framework');
 $doc->addScript('templates/' .$this->template. '/js/template.js');
 
 // Add Stylesheets
-$doc->addStyleSheet('templates/'.$this->template.'/css/template.css');
+$doc->addStyleSheet('templates/'.$this->template.'/css/bootstrap.min.css');
+$doc->addStyleSheet('templates/'.$this->template.'/css/custom.css');
 
 // Load optional RTL Bootstrap CSS
 JHtml::_('bootstrap.loadCss', false, $this->direction);
@@ -50,19 +51,19 @@ $user = JFactory::getUser();
 // Adjusting content width
 if ($this->countModules('position-7') && $this->countModules('position-8'))
 {
-	$span = "span6";
+	$span = "col-md-6";
 }
 elseif ($this->countModules('position-7') && !$this->countModules('position-8'))
 {
-	$span = "span9";
+	$span = "col-md-9";
 }
 elseif (!$this->countModules('position-7') && $this->countModules('position-8'))
 {
-	$span = "span9";
+	$span = "col-md-9";
 }
 else
 {
-	$span = "span12";
+	$span = "col-md-12";
 }
 
 // Logo file or site title param
@@ -147,7 +148,7 @@ else
 			<!-- Header -->
 			<header class="header" role="banner">
 				<div class="header-inner clearfix">
-					<a class="brand pull-left" href="<?php echo $this->baseurl; ?>">
+					<a class="navbar-brand pull-left" href="<?php echo $this->baseurl; ?>">
 						<?php echo $logo;?> <?php if ($this->params->get('sitedescription')) { echo '<div class="site-description">'. htmlspecialchars($this->params->get('sitedescription')) .'</div>'; } ?>
 					</a>
 					<div class="header-search pull-right">
@@ -156,15 +157,28 @@ else
 				</div>
 			</header>
 			<?php if ($this->countModules('position-1')) : ?>
-			<nav class="navigation" role="navigation">
-				<jdoc:include type="modules" name="position-1" style="none" />
+			<nav class="navbar navbar-default" role="navigation">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="main-navbar-collapse">
+					<jdoc:include type="modules" name="position-1" style="none" />
+				</div>
 			</nav>
 			<?php endif; ?>
 			<jdoc:include type="modules" name="banner" style="xhtml" />
-			<div class="row-fluid">
+			<div class="row">
 				<?php if ($this->countModules('position-8')) : ?>
 				<!-- Begin Sidebar -->
-				<div id="sidebar" class="span3">
+				<div id="sidebar" class="col-md-3">
 					<div class="sidebar-nav">
 						<jdoc:include type="modules" name="position-8" style="xhtml" />
 					</div>
@@ -180,7 +194,7 @@ else
 					<!-- End Content -->
 				</main>
 				<?php if ($this->countModules('position-7')) : ?>
-				<div id="aside" class="span3">
+				<div id="aside" class="col-md-3">
 					<!-- Begin Right Sidebar -->
 					<jdoc:include type="modules" name="position-7" style="well" />
 					<!-- End Right Sidebar -->

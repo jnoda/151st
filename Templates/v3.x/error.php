@@ -75,7 +75,10 @@ else
 	<?php
 		}
 	?>
-	<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/css/template.css" type="text/css" />
+	<script src="<?php echo $this->baseurl ?>/media/jui/js/jquery.min.js" type="text/javascript"></script>
+	<script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/js/jui/bootstrap.min.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/css/bootstrap.min.css" type="text/css" />
+	<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/css/custom.css" type="text/css" />
 
 	<?php
 		$debug = JFactory::getConfig()->get('debug_lang');
@@ -144,7 +147,7 @@ else
 			<!-- Header -->
 			<div class="header">
 				<div class="header-inner clearfix">
-					<a class="brand pull-left" href="<?php echo $this->baseurl; ?>">
+					<a class="navbar-brand pull-left" href="<?php echo $this->baseurl; ?>">
 						<?php echo $logo;?>
 					</a>
 					<div class="header-search pull-right">
@@ -155,23 +158,33 @@ else
 					</div>
 				</div>
 			</div>
-			<div class="navigation">
-				<?php
-				// Display position-1 modules
-				echo $doc->getBuffer('modules', 'position-1', array('style' => 'none'));
-				?>
-			</div>
-			<!-- Banner -->
-			<div class="banner">
-				<?php echo $doc->getBuffer('modules', 'banner', array('style' => 'xhtml')); ?>
-			</div>
-			<div class="row-fluid">
-				<div id="content" class="span12">
+			<nav class="navbar navbar-default" role="navigation">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="main-navbar-collapse">
+					<?php
+					// Display position-1 modules
+					echo $doc->getBuffer('modules', 'position-1', array('style' => 'none'));
+					?>
+				</div>
+			</nav>
+			<?php echo $doc->getBuffer('modules', 'banner', array('style' => 'xhtml')); ?>
+			<div class="row">
+				<main id="content" role="main" class="col-xs-12">
 					<!-- Begin Content -->
 					<h1 class="page-header"><?php echo JText::_('JERROR_LAYOUT_PAGE_NOT_FOUND'); ?></h1>
 					<div class="well">
-						<div class="row-fluid">
-							<div class="span6">
+						<div class="row">
+							<div class="col-sm-6">
 								<p><strong><?php echo JText::_('JERROR_LAYOUT_ERROR_HAS_OCCURRED_WHILE_PROCESSING_YOUR_REQUEST'); ?></strong></p>
 								<p><?php echo JText::_('JERROR_LAYOUT_NOT_ABLE_TO_VISIT'); ?></p>
 								<ul>
@@ -181,37 +194,36 @@ else
 									<li><?php echo JText::_('JERROR_LAYOUT_YOU_HAVE_NO_ACCESS_TO_THIS_PAGE'); ?></li>
 								</ul>
 							</div>
-							<div class="span6">
+							<div class="col-sm-6">
 								<?php if (JModuleHelper::getModule('search')) : ?>
 									<p><strong><?php echo JText::_('JERROR_LAYOUT_SEARCH'); ?></strong></p>
 									<p><?php echo JText::_('JERROR_LAYOUT_SEARCH_PAGE'); ?></p>
 									<?php echo $doc->getBuffer('module', 'search'); ?>
 								<?php endif; ?>
 								<p><?php echo JText::_('JERROR_LAYOUT_GO_TO_THE_HOME_PAGE'); ?></p>
-								<p><a href="<?php echo $this->baseurl; ?>/index.php" class="btn"><i class="icon-home"></i> <?php echo JText::_('JERROR_LAYOUT_HOME_PAGE'); ?></a></p>
+								<p><a href="<?php echo $this->baseurl; ?>/index.php" class="btn btn-default"><i class="glyphicon glyphicon-home"></i> <?php echo JText::_('JERROR_LAYOUT_HOME_PAGE'); ?></a></p>
 							</div>
 						</div>
 						<hr />
 						<p><?php echo JText::_('JERROR_LAYOUT_PLEASE_CONTACT_THE_SYSTEM_ADMINISTRATOR'); ?></p>
 						<blockquote>
-							<span class="label label-inverse"><?php echo $this->error->getCode(); ?></span> <?php echo $this->error->getMessage();?>
+							<span class="label label-default"><?php echo $this->error->getCode(); ?></span> <?php echo $this->error->getMessage();?>
 						</blockquote>
 					</div>
 					<!-- End Content -->
-				</div>
+				</main>
 			</div>
 		</div>
 	</div>
 	<!-- Footer -->
-	<div class="footer">
+	<footer class="footer" role="contentinfo">
 		<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : '');?>">
 			<hr />
 			<?php echo $doc->getBuffer('modules', 'footer', array('style' => 'none')); ?>
-
 			<p class="pull-right"><a href="#top" id="back-top"><?php echo JText::_('TPL_PROTOSTAR_BACKTOTOP'); ?></a></p>
 			<p>&copy; <?php echo $sitename; ?> <?php echo date('Y');?></p>
 		</div>
-	</div>
+	</footer>
 	<?php echo $doc->getBuffer('modules', 'debug', array('style' => 'none')); ?>
 </body>
 </html>
