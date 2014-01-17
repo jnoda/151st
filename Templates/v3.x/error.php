@@ -225,5 +225,17 @@ else
 		</div>
 	</footer>
 	<?php echo $doc->getBuffer('modules', 'debug', array('style' => 'none')); ?>
+	<script type="text/javascript">
+	  (function($){
+		jQuery(document).ready(function(){
+		  $('.parent').addClass('dropdown');
+		  $('.parent > a').addClass('dropdown-toggle');
+		  $('.parent > a').attr('data-toggle', 'dropdown');
+		  $('.parent > a').attr('href','#');
+		  $('.parent > a').append(' <span class="caret"></span>');
+		  $('.parent > ul').addClass('dropdown-menu');
+		});
+	  })(jQuery);
+	</script>
 </body>
 </html>
