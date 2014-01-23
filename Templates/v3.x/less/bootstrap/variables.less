@@ -173,14 +173,14 @@
 // Dropdowns
 // -------------------------
 
-@dropdown-bg:                    #fff;
+@dropdown-bg:                    rgba(12,19,25,0.9);
 @dropdown-border:                rgba(0,0,0,.15);
 @dropdown-fallback-border:       #ccc;
 @dropdown-divider-bg:            #e5e5e5;
 
-@dropdown-link-color:            @gray-dark;
+@dropdown-link-color:            #fff;
 @dropdown-link-hover-color:      darken(@gray-dark, 5%);
-@dropdown-link-hover-bg:         #f5f5f5;
+@dropdown-link-hover-bg:         #f9a801;
 
 @dropdown-link-active-color:     @component-active-color;
 @dropdown-link-active-bg:        @component-active-bg;
@@ -266,15 +266,15 @@
 @navbar-padding-horizontal:        floor(@grid-gutter-width / 2);
 @navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
 
-@navbar-default-color:             #777;
-@navbar-default-bg:                #f8f8f8;
+@navbar-default-color:             #fff;
+@navbar-default-bg:                rgba(12,19,25,0.9);
 @navbar-default-border:            darken(@navbar-default-bg, 6.5%);
 
 // Navbar links
-@navbar-default-link-color:                #777;
-@navbar-default-link-hover-color:          #333;
+@navbar-default-link-color:                #f9a801;
+@navbar-default-link-hover-color:          #fff;
 @navbar-default-link-hover-bg:             transparent;
-@navbar-default-link-active-color:         #555;
+@navbar-default-link-active-color:         #f9a801;
 @navbar-default-link-active-bg:            darken(@navbar-default-bg, 6.5%);
 @navbar-default-link-disabled-color:       #ccc;
 @navbar-default-link-disabled-bg:          transparent;
@@ -285,9 +285,9 @@
 @navbar-default-brand-hover-bg:            transparent;
 
 // Navbar toggle
-@navbar-default-toggle-hover-bg:           #ddd;
-@navbar-default-toggle-icon-bar-bg:        #ccc;
-@navbar-default-toggle-border-color:       #ddd;
+@navbar-default-toggle-hover-bg:           darken(@navbar-default-bg, 10%);
+@navbar-default-toggle-icon-bar-bg:        #f9a801;
+@navbar-default-toggle-border-color:       transparent;
 
 
 // Inverted navbar

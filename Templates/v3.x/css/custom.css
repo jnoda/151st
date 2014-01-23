@@ -1,3 +1,8 @@
 .container-fluid{
   padding: 0 15px;
+/** Bootstrap customization */
+
+.navbar-default  { 
+	text-transform: uppercase;
+}
 }
