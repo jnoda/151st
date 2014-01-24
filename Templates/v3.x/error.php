@@ -122,7 +122,7 @@ else
 						<?php echo $logo;?>
 					</a>
 				</div>
-				<div class="header-right col-sm-6">
+				<div class="header-right col-xs-12 col-sm-6">
 					<?php echo $doc->getBuffer('modules', 'position-0', array('style' => 'none')); ?>
 				</div>
 			</div>

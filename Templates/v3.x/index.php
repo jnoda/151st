@@ -122,7 +122,7 @@ else
 						<?php echo $logo;?> <?php if ($this->params->get('sitedescription')) { echo '<div class="site-description">'. htmlspecialchars($this->params->get('sitedescription')) .'</div>'; } ?>
 					</a>
 				</div>
-				<div class="header-right col-sm-6">
+				<div class="header-right col-xs-12 col-sm-6">
 					<jdoc:include type="modules" name="position-0" style="none" />
 				</div>
 			</div>
