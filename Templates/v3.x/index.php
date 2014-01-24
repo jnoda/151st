@@ -143,64 +143,65 @@ else
 ?>">
 
 	<!-- Body -->
-	<div class="body">
-		<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : '');?>">
-			<!-- Header -->
-			<header class="header" role="banner">
-				<div class="header-inner clearfix">
-					<a class="navbar-brand pull-left" href="<?php echo $this->baseurl; ?>">
+	<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : '');?>">
+		<!-- Header -->
+		<header class="header" role="banner">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<a class="navbar-brand" href="<?php echo $this->baseurl; ?>">
 						<?php echo $logo;?> <?php if ($this->params->get('sitedescription')) { echo '<div class="site-description">'. htmlspecialchars($this->params->get('sitedescription')) .'</div>'; } ?>
 					</a>
-					<div class="header-search pull-right">
-						<jdoc:include type="modules" name="position-0" style="none" />
-					</div>
 				</div>
-			</header>
-			<?php if ($this->countModules('position-1')) : ?>
-			<nav class="navbar navbar-default" role="navigation">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
+				<div class="header-right col-sm-6">
+					<jdoc:include type="modules" name="position-0" style="none" />
 				</div>
-
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="main-navbar-collapse">
-					<jdoc:include type="modules" name="position-1" style="none" />
-				</div>
-			</nav>
-			<?php endif; ?>
-			<jdoc:include type="modules" name="banner" style="xhtml" />
-			<div class="row">
-				<?php if ($this->countModules('position-8')) : ?>
-				<!-- Begin Sidebar -->
-				<div id="sidebar" class="col-md-3">
-					<div class="sidebar-nav">
-						<jdoc:include type="modules" name="position-8" style="xhtml" />
-					</div>
-				</div>
-				<!-- End Sidebar -->
-				<?php endif; ?>
-				<main id="content" role="main" class="<?php echo $span;?>">
-					<!-- Begin Content -->
-					<jdoc:include type="modules" name="position-3" style="xhtml" />
-					<jdoc:include type="message" />
-					<jdoc:include type="component" />
-					<jdoc:include type="modules" name="position-2" style="none" />
-					<!-- End Content -->
-				</main>
-				<?php if ($this->countModules('position-7')) : ?>
-				<div id="aside" class="col-md-3">
-					<!-- Begin Right Sidebar -->
-					<jdoc:include type="modules" name="position-7" style="well" />
-					<!-- End Right Sidebar -->
-				</div>
-				<?php endif; ?>
 			</div>
+		</header>
+	
+		<?php if ($this->countModules('position-1')) : ?>
+		<nav class="row navbar navbar-default" role="navigation">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="main-navbar-collapse">
+				<jdoc:include type="modules" name="position-1" style="none" />
+			</div>
+		</nav>
+		<?php endif; ?>
+		<jdoc:include type="modules" name="banner" style="xhtml" />
+		<div class="row">
+			<?php if ($this->countModules('position-8')) : ?>
+			<!-- Begin Sidebar -->
+			<div id="sidebar" class="col-md-3">
+				<div class="sidebar-nav">
+					<jdoc:include type="modules" name="position-8" style="xhtml" />
+				</div>
+			</div>
+			<!-- End Sidebar -->
+			<?php endif; ?>
+			<main id="content" role="main" class="<?php echo $span;?>">
+				<!-- Begin Content -->
+				<jdoc:include type="modules" name="position-3" style="xhtml" />
+				<jdoc:include type="message" />
+				<jdoc:include type="component" />
+				<jdoc:include type="modules" name="position-2" style="none" />
+				<!-- End Content -->
+			</main>
+			<?php if ($this->countModules('position-7')) : ?>
+			<div id="aside" class="col-md-3">
+				<!-- Begin Right Sidebar -->
+				<jdoc:include type="modules" name="position-7" style="well" />
+				<!-- End Right Sidebar -->
+			</div>
+			<?php endif; ?>
 		</div>
 	</div>
 	<!-- Footer -->
@@ -216,12 +217,15 @@ else
 	<script type="text/javascript">
 	  (function($){
 		jQuery(document).ready(function(){
-		  $('.parent').addClass('dropdown');
-		  $('.parent > a').addClass('dropdown-toggle');
-		  $('.parent > a').attr('data-toggle', 'dropdown');
-		  $('.parent > a').attr('href','#');
-		  $('.parent > a').append(' <span class="caret"></span>');
-		  $('.parent > ul').addClass('dropdown-menu');
+			/* changes for nav bar */
+			$('.parent').addClass('dropdown');
+			$('.parent > a').addClass('dropdown-toggle');
+			$('.parent > a').attr('data-toggle', 'dropdown');
+			$('.parent > a').attr('href','#');
+			$('.parent > a').append(' <span class="caret"></span>');
+			$('.parent > ul').addClass('dropdown-menu');
+			/* changes for logo */
+			$('.navbar-brand > img').addClass('img-responsive');
 		});
 	  })(jQuery);
 	</script>

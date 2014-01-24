@@ -3,11 +3,34 @@ body {
 }
 
 .container-fluid{
-  padding: 0 15px;
-/** Bootstrap customization */
+	padding: 0 30px;
+}
 
+.header-right{	
+	padding: 15px 15px;	
+	color: #fff;
+}
+
+/* BOOTSTRAP */
+
+.navbar-brand{
+	padding: 15px 0px;
+}
+	
 .navbar-default  { 
 	text-transform: uppercase;
+}
+
+/* MEDIA QUERIES */
+
+@media (min-width: 768px){
+	.navbar-brand{
+		margin-left: -15px;
+	}
+	
+	.header-right{
+		text-align: right;
+	}
 }
 
 /* MODULES */
