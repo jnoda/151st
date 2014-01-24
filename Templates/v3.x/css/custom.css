@@ -12,6 +12,13 @@ body {
 
 /* MODULES */
 
+/* CLOCK MODULE */
+
+.clockDiv {
+	font-size: x-large;
+	text-shadow: 0 0 10px #12a7ff, 0 0 10px #12a7ff;
+}
+
 /* LOGIN MODULE */
 
 #login-form  {

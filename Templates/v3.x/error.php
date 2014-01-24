@@ -68,7 +68,7 @@ else
 	?>
 		<link href='//fonts.googleapis.com/css?family=<?php echo $params->get('googleFontName');?>' rel='stylesheet' type='text/css' />
 		<style type="text/css">
-			h1,h2,h3,h4,h5,h6,.site-title{
+			h1,h2,h3,h4,h5,h6,.site-title,.navbar-default,.clockDiv{
 				font-family: '<?php echo str_replace('+', ' ', $params->get('googleFontName'));?>', sans-serif;
 			}
 		</style>
