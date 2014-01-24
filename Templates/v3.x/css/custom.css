@@ -9,4 +9,38 @@ body {
 .navbar-default  { 
 	text-transform: uppercase;
 }
+
+/* MODULES */
+
+/* LOGIN MODULE */
+
+#login-form  {
+	font-size: smaller;
+}
+
+#login-form .btn-primary {
+	color: #fff;
+	background-color: #0c1319;
+	border-color: #243847;	
+}
+
+#login-form .form-control {
+	border-color: #243847;	
+}
+
+#login-form ul {
+	padding: 0px;
+}
+#login-form li {
+	display: inline-block;
+}
+
+#login-form li+li:before {
+	content: "|";
+	padding: 0 5px;
+	color: #b1e2ff;
+}
+
+#login-form a {
+	color: #b1e2ff;
 }
