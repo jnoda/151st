@@ -34,14 +34,14 @@ function modChrome_no($module, &$params, &$attribs)
 	}
 }
 
-function modChrome_well($module, &$params, &$attribs)
+function modChrome_box($module, &$params, &$attribs)
 {
 	if ($module->content)
 	{
-		echo "<div class=\"well " . htmlspecialchars($params->get('moduleclass_sfx')) . "\">";
+		echo "<div class=\"module-box " . htmlspecialchars($params->get('moduleclass_sfx')) . "\">";
 		if ($module->showtitle)
 		{
-			echo "<h3 class=\"page-header\">" . $module->title . "</h3>";
+			echo "<h3>" . $module->title . "</h3>";
 		}
 		echo $module->content;
 		echo "</div>";

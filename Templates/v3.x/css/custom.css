@@ -6,9 +6,31 @@ body {
 	padding: 0 30px;
 }
 
+h1,h2,h3,h4,h5,h6{
+	text-transform: uppercase;
+}
+
 .header-right{	
 	padding: 15px 15px;	
 	color: #fff;
+}
+
+.module-box{
+	color: #aaa;
+	font-size: 12px;	
+	min-height: 20px;
+	padding: 19px;
+	margin-bottom: 20px;
+	background-color: rgba(16, 26, 34, 0.9);
+	border: 1px solid rgba(1, 2, 3, 0.9);
+	border-radius: 4px;
+}
+
+.module-box h3{
+	color: #f9a801;
+	padding-bottom: 9px;
+	margin: 10px 0 20px;
+	border-bottom: 2px solid #f9a801;
 }
 
 /* BOOTSTRAP */

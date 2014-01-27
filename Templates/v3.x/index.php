@@ -149,7 +149,7 @@ else
 		<jdoc:include type="modules" name="banner" style="xhtml" />
 		<div class="row">
 			<?php if ($this->countModules('position-8')) : ?>
-			<!-- Begin Sidebar -->
+			<!-- Begin Left Sidebar -->
 			<div id="sidebar" class="col-md-3">
 				<div class="sidebar-nav">
 					<jdoc:include type="modules" name="position-8" style="xhtml" />
@@ -168,7 +168,7 @@ else
 			<?php if ($this->countModules('position-7')) : ?>
 			<div id="aside" class="col-md-3">
 				<!-- Begin Right Sidebar -->
-				<jdoc:include type="modules" name="position-7" style="well" />
+				<jdoc:include type="modules" name="position-7" style="box" />
 				<!-- End Right Sidebar -->
 			</div>
 			<?php endif; ?>
