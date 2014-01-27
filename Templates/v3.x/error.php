@@ -128,7 +128,7 @@ else
 			</div>
 		</header>
 	
-		<nav class="row navbar navbar-default" role="navigation">
+		<nav class="navbar navbar-default" role="navigation">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar-collapse">
@@ -148,34 +148,36 @@ else
 		<div class="row">
 			<main id="content" role="main" class="col-xs-12">
 				<!-- Begin Content -->
-				<h1 class="page-header"><?php echo JText::_('JERROR_LAYOUT_PAGE_NOT_FOUND'); ?></h1>
-				<div class="well">
-					<div class="row">
-						<div class="col-sm-6">
-							<p><strong><?php echo JText::_('JERROR_LAYOUT_ERROR_HAS_OCCURRED_WHILE_PROCESSING_YOUR_REQUEST'); ?></strong></p>
-							<p><?php echo JText::_('JERROR_LAYOUT_NOT_ABLE_TO_VISIT'); ?></p>
-							<ul>
-								<li><?php echo JText::_('JERROR_LAYOUT_AN_OUT_OF_DATE_BOOKMARK_FAVOURITE'); ?></li>
-								<li><?php echo JText::_('JERROR_LAYOUT_MIS_TYPED_ADDRESS'); ?></li>
-								<li><?php echo JText::_('JERROR_LAYOUT_SEARCH_ENGINE_OUT_OF_DATE_LISTING'); ?></li>
-								<li><?php echo JText::_('JERROR_LAYOUT_YOU_HAVE_NO_ACCESS_TO_THIS_PAGE'); ?></li>
-							</ul>
+				<div id="component">
+					<h1 class="page-header"><?php echo JText::_('JERROR_LAYOUT_PAGE_NOT_FOUND'); ?></h1>
+					<div class="well">
+						<div class="row">
+							<div class="col-sm-6">
+								<p><strong><?php echo JText::_('JERROR_LAYOUT_ERROR_HAS_OCCURRED_WHILE_PROCESSING_YOUR_REQUEST'); ?></strong></p>
+								<p><?php echo JText::_('JERROR_LAYOUT_NOT_ABLE_TO_VISIT'); ?></p>
+								<ul>
+									<li><?php echo JText::_('JERROR_LAYOUT_AN_OUT_OF_DATE_BOOKMARK_FAVOURITE'); ?></li>
+									<li><?php echo JText::_('JERROR_LAYOUT_MIS_TYPED_ADDRESS'); ?></li>
+									<li><?php echo JText::_('JERROR_LAYOUT_SEARCH_ENGINE_OUT_OF_DATE_LISTING'); ?></li>
+									<li><?php echo JText::_('JERROR_LAYOUT_YOU_HAVE_NO_ACCESS_TO_THIS_PAGE'); ?></li>
+								</ul>
+							</div>
+							<div class="col-sm-6">
+								<?php if (JModuleHelper::getModule('search')) : ?>
+									<p><strong><?php echo JText::_('JERROR_LAYOUT_SEARCH'); ?></strong></p>
+									<p><?php echo JText::_('JERROR_LAYOUT_SEARCH_PAGE'); ?></p>
+									<?php echo $doc->getBuffer('module', 'search'); ?>
+								<?php endif; ?>
+								<p><?php echo JText::_('JERROR_LAYOUT_GO_TO_THE_HOME_PAGE'); ?></p>
+								<p><a href="<?php echo $this->baseurl; ?>/index.php" class="btn btn-default"><i class="glyphicon glyphicon-home"></i> <?php echo JText::_('JERROR_LAYOUT_HOME_PAGE'); ?></a></p>
+							</div>
 						</div>
-						<div class="col-sm-6">
-							<?php if (JModuleHelper::getModule('search')) : ?>
-								<p><strong><?php echo JText::_('JERROR_LAYOUT_SEARCH'); ?></strong></p>
-								<p><?php echo JText::_('JERROR_LAYOUT_SEARCH_PAGE'); ?></p>
-								<?php echo $doc->getBuffer('module', 'search'); ?>
-							<?php endif; ?>
-							<p><?php echo JText::_('JERROR_LAYOUT_GO_TO_THE_HOME_PAGE'); ?></p>
-							<p><a href="<?php echo $this->baseurl; ?>/index.php" class="btn btn-default"><i class="glyphicon glyphicon-home"></i> <?php echo JText::_('JERROR_LAYOUT_HOME_PAGE'); ?></a></p>
-						</div>
+						<hr />
+						<p><?php echo JText::_('JERROR_LAYOUT_PLEASE_CONTACT_THE_SYSTEM_ADMINISTRATOR'); ?></p>
+						<blockquote>
+							<span class="label label-default"><?php echo $this->error->getCode(); ?></span> <?php echo $this->error->getMessage();?>
+						</blockquote>
 					</div>
-					<hr />
-					<p><?php echo JText::_('JERROR_LAYOUT_PLEASE_CONTACT_THE_SYSTEM_ADMINISTRATOR'); ?></p>
-					<blockquote>
-						<span class="label label-default"><?php echo $this->error->getCode(); ?></span> <?php echo $this->error->getMessage();?>
-					</blockquote>
 				</div>
 				<!-- End Content -->
 			</main>

@@ -19,7 +19,7 @@ h1,h2,h3,h4,h5,h6{
 	color: #aaa;
 	font-size: 12px;	
 	min-height: 20px;
-	padding: 19px;
+	padding: 20px;
 	margin-bottom: 20px;
 	background-color: rgba(16, 26, 34, 0.9);
 	border: 1px solid rgba(1, 2, 3, 0.9);
@@ -43,13 +43,18 @@ h1,h2,h3,h4,h5,h6{
 	text-transform: uppercase;
 }
 
+.breadcrumb{
+	padding: 0px 15px;
+	margin-bottom: 15px;
+}
+
+.breadcrumb li, .breadcrumb li a{
+	color: #b1e2ff;
+}
+
 /* MEDIA QUERIES */
 
 @media (min-width: 768px){
-	.navbar-brand{
-		margin-left: -15px;
-	}
-	
 	.header-right{
 		text-align: right;
 	}

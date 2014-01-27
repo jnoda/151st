@@ -1,9 +1,9 @@
 <?php
 /**
- * @package     Joomla.Site
- * @subpackage  mod_breadcrumbs
+ * @package     151st.Site
+ * @subpackage  Templates.151st.mod_breadcrumbs
  *
- * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2014 151st Freedom Fighters. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -17,7 +17,7 @@ JHtml::_('bootstrap.tooltip');
 	<?php
 	if ($params->get('showHere', 1))
 	{
-		echo '<li class="active"><span class="divider icon-location hasTooltip" title="' . JText::_('MOD_BREADCRUMBS_HERE') . '"></span></li>';
+		echo '<li><span class="glyphicon glyphicon-map-marker hasTooltip" title="' . JText::_('MOD_BREADCRUMBS_HERE') . '"></span></li>';
 	}
 
 	// Get rid of duplicated entries on trail including home page when using multilanguage
@@ -51,11 +51,6 @@ JHtml::_('bootstrap.tooltip');
 		else
 		{
 			echo '<span>' . $item->name . '</span>';
-		}
-
-		if (($key != $penult_item_key) || $show_last)
-		{
-			echo '<span class="divider">' . $separator . '</span>';
 		}
 
 		echo '</li>';

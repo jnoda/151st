@@ -129,7 +129,7 @@ else
 		</header>
 	
 		<?php if ($this->countModules('position-1')) : ?>
-		<nav class="row navbar navbar-default" role="navigation">
+		<nav class="navbar navbar-default" role="navigation">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar-collapse">
@@ -159,10 +159,12 @@ else
 			<?php endif; ?>
 			<main id="content" role="main" class="<?php echo $span;?>">
 				<!-- Begin Content -->
+				<jdoc:include type="modules" name="position-2" style="none" />				
 				<jdoc:include type="modules" name="position-3" style="xhtml" />
 				<jdoc:include type="message" />
-				<jdoc:include type="component" />
-				<jdoc:include type="modules" name="position-2" style="none" />
+				<div id="component">
+					<jdoc:include type="component" />
+				</div>
 				<!-- End Content -->
 			</main>
 			<?php if ($this->countModules('position-7')) : ?>
