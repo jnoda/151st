@@ -38,7 +38,13 @@ function modChrome_box($module, &$params, &$attribs)
 {
 	if ($module->content)
 	{
-		echo "<div class=\"module-box " . htmlspecialchars($params->get('moduleclass_sfx')) . "\">";
+		echo "<div class=\"";
+		if (empty($attribs['class'])) {
+			echo "module-box ";
+		} else {
+			echo $attribs['class'] . " ";
+		}
+		echo htmlspecialchars($params->get('moduleclass_sfx')) . $attribs['span'] . "\">";
 		if ($module->showtitle)
 		{
 			echo "<h3>" . $module->title . "</h3>";

@@ -65,6 +65,11 @@ else
 	$span = "col-md-12";
 }
 
+// Adjusting main-top content width
+if ($this->countModules('main-top')){
+	$topspan = "col-md-" . (int)(12 / $this->countModules('main-top'));
+}
+
 // Logo file or site title param
 if ($this->params->get('logoFile'))
 {
@@ -155,10 +160,14 @@ else
 			<?php endif; ?>
 			<main id="content" role="main" class="<?php echo $span;?>">
 				<!-- Begin Content -->
-				<jdoc:include type="modules" name="breadcrumb" style="none" />				
-				<jdoc:include type="modules" name="position-3" style="xhtml" />
+				<jdoc:include type="modules" name="breadcrumb" style="none" />
 				<jdoc:include type="message" />
 				<div id="component">
+					<?php if ($this->countModules('main-top')) : ?>
+					<div class="row">
+						<jdoc:include type="modules" name="main-top" style="box" span="<?php echo $topspan;?>" class="unestyled"/>
+					</div>
+					<?php endif; ?>
 					<jdoc:include type="component" />
 				</div>
 				<!-- End Content -->
