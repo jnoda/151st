@@ -35,29 +35,28 @@ else
 }
 
 // Add JavaScript Frameworks
-JHtml::_('bootstrap.framework');
+JHtml::_('behavior.framework', true);
+$doc->addScript('http://code.jquery.com/jquery-1.10.2.min.js');
+$doc->addScript('templates/' .$this->template. '/js/jui/bootstrap.min.js');
 $doc->addScript('templates/' .$this->template. '/js/template.js');
 
 // Add Stylesheets
 $doc->addStyleSheet('templates/'.$this->template.'/css/bootstrap.min.css');
 $doc->addStyleSheet('templates/'.$this->template.'/css/custom.css');
 
-// Load optional RTL Bootstrap CSS
-JHtml::_('bootstrap.loadCss', false, $this->direction);
-
 // Add current user information
 $user = JFactory::getUser();
 
 // Adjusting content width
-if ($this->countModules('position-7') && $this->countModules('position-8'))
+if ($this->countModules('main-right') && $this->countModules('main-left'))
 {
 	$span = "col-md-6";
 }
-elseif ($this->countModules('position-7') && !$this->countModules('position-8'))
+elseif ($this->countModules('main-right') && !$this->countModules('main-left'))
 {
 	$span = "col-md-9";
 }
-elseif (!$this->countModules('position-7') && $this->countModules('position-8'))
+elseif (!$this->countModules('main-right') && $this->countModules('main-left'))
 {
 	$span = "col-md-9";
 }
@@ -92,16 +91,13 @@ else
 	?>
 		<link href='//fonts.googleapis.com/css?family=<?php echo $this->params->get('googleFontName');?>' rel='stylesheet' type='text/css' />
 		<style type="text/css">
-			h1,h2,h3,h4,h5,h6,.site-title,.navbar-default,.clockDiv{
+			h1,h2,h3,h4,h5,h6,.site-title,.navbar-default,#clockDiv{
 				font-family: '<?php echo str_replace('+', ' ', $this->params->get('googleFontName'));?>', sans-serif;
 			}
 		</style>
 	<?php
 	}
 	?>
-	<!--[if lt IE 9]>
-		<script src="<?php echo $this->baseurl ?>/media/jui/js/html5.js"></script>
-	<![endif]-->
 </head>
 
 <body class="site <?php echo $option
@@ -123,12 +119,12 @@ else
 					</a>
 				</div>
 				<div class="header-right col-xs-12 col-sm-6">
-					<jdoc:include type="modules" name="position-0" style="none" />
+					<jdoc:include type="modules" name="login" style="none" />
 				</div>
 			</div>
 		</header>
-	
-		<?php if ($this->countModules('position-1')) : ?>
+
+		<?php if ($this->countModules('menu-header')) : ?>
 		<nav class="navbar navbar-default" role="navigation">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -142,24 +138,24 @@ else
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="main-navbar-collapse">
-				<jdoc:include type="modules" name="position-1" style="none" />
+				<jdoc:include type="modules" name="menu-header" style="none" />
 			</div>
 		</nav>
 		<?php endif; ?>
 		<jdoc:include type="modules" name="banner" style="xhtml" />
 		<div class="row">
-			<?php if ($this->countModules('position-8')) : ?>
+			<?php if ($this->countModules('main-left')) : ?>
 			<!-- Begin Left Sidebar -->
 			<div id="sidebar" class="col-md-3">
 				<div class="sidebar-nav">
-					<jdoc:include type="modules" name="position-8" style="xhtml" />
+					<jdoc:include type="modules" name="main-left" style="xhtml" />
 				</div>
 			</div>
 			<!-- End Sidebar -->
 			<?php endif; ?>
 			<main id="content" role="main" class="<?php echo $span;?>">
 				<!-- Begin Content -->
-				<jdoc:include type="modules" name="position-2" style="none" />				
+				<jdoc:include type="modules" name="breadcrumb" style="none" />				
 				<jdoc:include type="modules" name="position-3" style="xhtml" />
 				<jdoc:include type="message" />
 				<div id="component">
@@ -167,10 +163,10 @@ else
 				</div>
 				<!-- End Content -->
 			</main>
-			<?php if ($this->countModules('position-7')) : ?>
+			<?php if ($this->countModules('main-right')) : ?>
 			<div id="aside" class="col-md-3">
 				<!-- Begin Right Sidebar -->
-				<jdoc:include type="modules" name="position-7" style="box" />
+				<jdoc:include type="modules" name="main-right" style="box" />
 				<!-- End Right Sidebar -->
 			</div>
 			<?php endif; ?>

@@ -64,7 +64,7 @@ h1,h2,h3,h4,h5,h6{
 
 /* CLOCK MODULE */
 
-.clockDiv {
+#clockDiv {
 	font-size: x-large;
 	text-shadow: 0 0 10px #12a7ff, 0 0 10px #12a7ff;
 }
@@ -72,7 +72,7 @@ h1,h2,h3,h4,h5,h6{
 /* LOGIN MODULE */
 
 #login-form  {
-	font-size: smaller;
+	font-size: 12px;
 }
 
 #login-form .btn-primary {
